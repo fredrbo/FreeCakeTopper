@@ -1,16 +1,19 @@
+using System.Collections.Generic;
+
 namespace FreeCakeTopper.WebAPI.Models
 {
     public class TopperName
     {
         public TopperName() { }
 
-        public TopperName(int id, string name, string font, string color, int userId)
+        public TopperName(int id, string name, string font, string color,int userId)
         {
             this.Id = id;
             this.Name = name;
             this.Font = font;
             this.Color = color;
             this.UserId = userId;
+
 
         }
         public int Id { get; set; }
@@ -20,5 +23,6 @@ namespace FreeCakeTopper.WebAPI.Models
 
         public int UserId { get; set; }
         public User User { get; set; }
+        public  IEnumerable<UserTopper> UserToppers { get; set; }
     }
 }

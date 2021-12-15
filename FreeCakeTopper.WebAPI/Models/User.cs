@@ -17,6 +17,6 @@ namespace FreeCakeTopper.WebAPI.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public  IEnumerable<TopperName> TopperNames { get; set; }
+        public  IEnumerable<UserTopper> UserToppers { get; set; }
     }
 }
