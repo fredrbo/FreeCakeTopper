@@ -1,0 +1,39 @@
+<app-nav></app-nav>
+<div class="container">
+    <div class="row align-items-start">
+        <div class="col">
+            <div style="background-color: yellowgreen; height: 250px; width: 250px;">
+                <label> Nome</label>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="row align-items-start">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input matInput placeholder="Digite o nome">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Fonte</mat-label>
+                        <input matInput placeholder="Escolha a fonte">
+                    </mat-form-field>
+                </form>
+
+                <mat-label>Cor Fonte</mat-label>
+                <input matInput type='color' value="#1584d3">
+                <mat-label>Cor Sombra</mat-label>
+                <input matInput type='color' value="#5fa9dd">
+
+
+            </div>
+            
+            <div class="example-button-row">
+                <button mat-raised-button color="primary" routerLink="../historic">Salvar</button>
+                <button mat-raised-button color="warn" routerLink="../historic">Cancelar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
