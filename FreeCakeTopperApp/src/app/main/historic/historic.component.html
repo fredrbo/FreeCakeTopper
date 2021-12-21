@@ -1,0 +1,10 @@
+<app-nav></app-nav>
+<h1 >Historico</h1>
+<mat-grid-list cols="4" rowHeight="12.5rem" gutterSize='20px'>
+<div *ngFor="let topper of toppers">
+    <mat-grid-tile>
+        <app-name-historic></app-name-historic>
+    </mat-grid-tile>
+</div>
+</mat-grid-list>
+
