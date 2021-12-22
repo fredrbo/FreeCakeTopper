@@ -13,6 +13,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select'
 
 
 
@@ -30,11 +32,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
   imports: [
     MatInputModule,
     MatButtonModule,
+    MatSelectModule,
     MatSliderModule,
     MatGridListModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

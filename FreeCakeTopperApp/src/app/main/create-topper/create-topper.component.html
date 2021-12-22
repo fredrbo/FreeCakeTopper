@@ -2,35 +2,50 @@
 <div class="container">
     <div class="row align-items-start">
         <div class="col">
-            <div style="background-color: yellowgreen; height: 250px; width: 250px;">
-                <label> Nome</label>
+            <div style="background-color: lightblue; height: 50vh; width: 30vw;">
+                <label class="pt-3" style="
+                    font-size: 4em;
+                    font-family: {{formulario.value.font}};
+                    color: {{formulario.value.colorFont}};
+                    -webkit-text-stroke-width: {{formulario.value.strokeWidht}}px;
+                    -webkit-text-stroke-color: {{formulario.value.colorStroke}};">
+                    {{formulario.value.name}}
+                </label>
             </div>
         </div>
 
         <div class="col">
             <div class="row align-items-start">
-                <form class="example-form">
+                <form class="example-form" [formGroup]="formulario">
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Nome</mat-label>
-                        <input matInput placeholder="Digite o nome">
+                        <input value="" matInput placeholdformGrouper="Digite o nome" formControlName="name">
                     </mat-form-field>
                     <br>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Fonte</mat-label>
-                        <input matInput placeholder="Escolha a fonte">
+                        <!-- <input matInput placeholder="Escolha a fonte" formControlName="font"> -->
+                        <mat-select formControlName="font">
+                            <mat-option *ngFor="let font of fonts" [value]="font.value">
+                                {{font.value}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
+                    <br>
+                    <mat-label>Cor Fonte</mat-label>
+                    <input matInput type='color' formControlName="colorFont">
+
+                    <mat-label>Cor Sombra</mat-label>
+                    <input matInput type='color' formControlName="colorStroke">
+
+                    <mat-label>Tamanho Sombra</mat-label>
+                    <mat-slider min="0" max="5" step="0.01" value='1' formControlName="strokeWidht"></mat-slider>
                 </form>
 
-                <mat-label>Cor Fonte</mat-label>
-                <input matInput type='color' value="#1584d3">
-                <mat-label>Cor Sombra</mat-label>
-                <input matInput type='color' value="#5fa9dd">
-
-
             </div>
-            
+
             <div class="example-button-row">
-                <button mat-raised-button color="primary" routerLink="../historic">Salvar</button>
+                <button type="submit" mat-raised-button color="primary" routerLink="../historic">Salvar</button>
                 <button mat-raised-button color="warn" routerLink="../historic">Cancelar</button>
             </div>
 
