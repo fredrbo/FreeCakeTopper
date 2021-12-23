@@ -1,0 +1,8 @@
+label{
+    color: var(--label);
+}
+
+button {
+    background-color: var(--bg-input-submit);
+    margin-top: 5px;
+}

@@ -2,9 +2,9 @@
 <div class="container">
     <div class="row align-items-start">
         <div class="col">
-            <div style="background-color: lightblue; height: 50vh; width: 30vw;">
-                <label class="pt-3" style="
-                    font-size: 4em;
+            <div style="background-color: lightblue; height: 50vh; width: 30vw;" class="bg">
+                <label class="topper" class="pt-3" style="
+                    font-size: 4.8em;
                     font-family: {{formulario.value.font}};
                     color: {{formulario.value.colorFont}};
                     -webkit-text-stroke-width: {{formulario.value.strokeWidht}}px;
@@ -24,7 +24,6 @@
                     <br>
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Fonte</mat-label>
-                        <!-- <input matInput placeholder="Escolha a fonte" formControlName="font"> -->
                         <mat-select formControlName="font">
                             <mat-option *ngFor="let font of fonts" [value]="font.value">
                                 {{font.value}}

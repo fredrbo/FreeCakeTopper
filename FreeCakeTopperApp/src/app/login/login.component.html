@@ -1,39 +1,27 @@
 <img src="../../assets/logo.png" class="rounded mx-auto d-block" alt="...">
 
-<div class="container-fluid">
+<div class="container-fluid mt-1" >
     <div class="row justify-content-center">
-        <div class="col-4">
+        <div class="col-4" style="background-color: var(--bg-login); border-radius: 10px;">
             <div class="row justify-content-center">
-                <p>Login</p>
-                <!-- <form class="example-form">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Email</mat-label>
-                        <input matInput placeholder="Digite seu email">
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Senha</mat-label>
-                        <input matInput type="password">
-                    </mat-form-field>
-                </form> -->
+                <label style="font-size: 1.6rem; text-align: center;">Login</label>
                 <form>
                     <div class="form-group">
                         <div class="col-sm-10">
-                            <label for="exampleFormControlInput1">Email</label>
-                            <input value="{{user.email}}" type="email" class="form-control" id="exampleFormControlInput1">
+                            <label>Email</label>
+                            <input type="email" class="form-control" formControlName="email">
                         </div>
 
                         <div class="col-sm-10">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                            <input value="{{user.password}}" type="password" (clich)="verifyPassword()"
-                             class="form-control" id="inputPassword">
+                            <label class="col-sm-2 col-form-label">Password</label>
+                            <input type="password" class="form-control" formControlName="name">
                         </div>
                     </div>
                 </form>
 
 
-                <a routerLink="../main/">
-                    <button class="btn btn-outline-success">
+                <a routerLink="../historic/">
+                    <button class="btn btn-outline-success" >
                         Entrar
                     </button>
                 </a>

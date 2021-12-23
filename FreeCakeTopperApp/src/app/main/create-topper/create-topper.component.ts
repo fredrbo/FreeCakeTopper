@@ -1,8 +1,7 @@
-import { Topper } from './../../models/Topper';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select'
-interface Font{
+
+interface Font {
   value: string;
 }
 
@@ -19,10 +18,11 @@ export class CreateTopperComponent implements OnInit {
 
 
   fonts: Font[] = [
-    {value: 'Arial'},
-    {value: 'Courier New'},
-    {value: 'Times New Roman'},
-  ];
+    { value: 'Arial' },
+    { value: 'Astral Sisters' },
+    { value: 'Southmore' },
+    { value: 'Winter Christmas' },
+    { value: 'TheBlacklight' },];
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       name: ['Fred'],
@@ -33,6 +33,8 @@ export class CreateTopperComponent implements OnInit {
     })
 
   }
+
+
 
 }
 

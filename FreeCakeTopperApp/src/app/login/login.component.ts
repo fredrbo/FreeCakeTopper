@@ -1,4 +1,10 @@
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+
+interface user {
+    email: string,
+    password: string
+}
 
 @Component({
   selector: 'app-login',
@@ -7,19 +13,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
+  formulario: FormGroup;
 
-  public user = {
-    email: "fred@teste.com",
-    password: "123"
-  }
+
+  users: user[] = [
+    {email: 'fred@teste.com',password: "123"},
+    {email: 'fred@gmail.com',password: "1234"},
+    {email: 'fred@hotmail.com',password: "321"},
+  ];
+  
   ngOnInit(): void {
-  }
+    this.formulario = this.formBuilder.group({
+      email:[null],
+      password:[null],
+      })
+  };
 
-  verifyPassword() {
-    if (this.user.email != "fred@teste.com" && this.user.password != "123") {
-      console.log("errou");
-    }
-  }
 
-}
+  }

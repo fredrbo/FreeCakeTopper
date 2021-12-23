@@ -1,3 +1,42 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #E0C3C3;
+}
+
+:root {
+    --label: #AF7070;
+    --bg-login: #FAFAFA;
+    --bg-input-login: #EBCCCC;
+    --bg-input-submit: #EBD3BB;
+}
+
+@font-face {
+    font-family: Astral Sisters;
+    src: url(assets/fonts/AstralSisters.ttf) format("opentype");
+}
+
+
+@font-face {
+
+    font-family: Winter Christmas;
+    src: url(assets/fonts/WinterChristmas.otf) format("opentype");
+}
+
+@font-face {
+
+    font-family: Southmore;
+    src: url(assets/fonts/Southmore.ttf) format("opentype");
+}
+
+@font-face {
+
+    font-family: TheBlacklight;
+    src: url(assets/fonts/TheBlacklight.ttf) format("opentype");
+}

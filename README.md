@@ -15,7 +15,8 @@ Será incluso nesse sistema, as funções de
 - [ ] Cadastro de usuário
 - [ ] Criação e edição dos nomes dos toppers
 - [ ] Consulta do histórico
-- [ ] Salvamento o arquivo em uma foto e/ou imprimi-lo
+- [ ] Salvar topper em um arquivo de imagem e/ou imprimi-lo
+- [ ] Design Responsivo
 
 ## 🚀 Tecnologias usadas
 
