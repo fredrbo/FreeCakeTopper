@@ -11,17 +11,20 @@ namespace FreeCakeTopper.WebAPI.Controllers
     [Route("api/[controller]")]
     public class TopperNameController : ControllerBase
     {
-        private readonly DataContext _context;
-        public TopperNameController(DataContext context)
-        {
-            _context = context;
-        }
 
+        private readonly IRepository _repo;
+
+        public TopperNameController(IRepository repo)
+        {
+            _repo = repo;
+        }
 
         [HttpGet]
         public IActionResult GetToppers()
         {
-            return Ok(_context.TopperNames);
+            var result = _repo.GetAllToppers();
+            return Ok(result);
+
         }
 
         //api/user/byuserId?id=1 
@@ -29,7 +32,7 @@ namespace FreeCakeTopper.WebAPI.Controllers
         public IActionResult GetByUserId(int userId)
         {
             // retornando apenas o primeiro
-            var user = _context.TopperNames.FirstOrDefault(u => u.UserId == userId);
+            var user = _repo.GetAllToppersByUserId(userId);
             if (user == null) return BadRequest("Usuario não encontrado");
             return Ok(user);
         }
@@ -37,43 +40,55 @@ namespace FreeCakeTopper.WebAPI.Controllers
         [HttpPost]
         public IActionResult Post(TopperName topperName)
         {
-            _context.Add(topperName);
-            _context.SaveChanges();
-            return Ok(topperName);
+            _repo.Add(topperName);
+            if (_repo.SaveChanges())
+            {
+                return Ok(topperName);
+            }
+            return BadRequest("Topo não cadastrado");
         }
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, TopperName topperName)
         {
 
-            var topper = _context.TopperNames.AsNoTracking().FirstOrDefault(t => t.Id == id);
+            var topper = _repo.GetAllToppersByUserId(id);
             if (topper == null) return BadRequest("Nome não encontrado");
 
-            _context.Update(topperName);
-            _context.SaveChanges();
-            return Ok(topperName);
+            _repo.Update(topperName);
+            if (_repo.SaveChanges())
+            {
+                return Ok(topperName);
+            }
+            return BadRequest("Topo não cadastrado");
         }
 
         [HttpPatch("{id}")]
         public IActionResult Patch(int id, TopperName topperName)
         {
-
-            var topper = _context.TopperNames.AsNoTracking().FirstOrDefault(t => t.Id == id);
+            var topper = _repo.GetAllToppersByUserId(id);
             if (topper == null) return BadRequest("Nome não encontrado");
 
-            _context.Update(topperName);
-            _context.SaveChanges();
-            return Ok(topperName);
+            _repo.Update(topperName);
+            if (_repo.SaveChanges())
+            {
+                return Ok(topperName);
+            }
+            return BadRequest("Topo não cadastrado");
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id){
-            var topper = _context.TopperNames.FirstOrDefault(t => t.Id == id);
+        public IActionResult Delete(int id)
+        {
+            var topper = _repo.GetAllToppersByUserId(id);
             if (topper == null) return BadRequest("Nome não encontrado");
 
-            _context.Remove(topper);
-            _context.SaveChanges();
-            return Ok(topper);
+            _repo.Delete(topper);
+            if (_repo.SaveChanges())
+            {
+                return Ok(topper);
+            }
+            return BadRequest("Topo não cadastrado");
 
         }
     }

@@ -31,7 +31,12 @@ namespace FreeCakeTopper.WebAPI
                 context =>  context.UseSqlite(Configuration.GetConnectionString("Default"))
             );
 
-            services.AddControllers();
+            services.AddScoped<IRepository, Repository>();
+            
+            services.AddControllers()
+                    .AddNewtonsoftJson(
+                        opt => opt.SerializerSettings.ReferenceLoopHandling = 
+                        Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "FreeCakeTopper.WebAPI", Version = "v1" });
@@ -47,11 +52,7 @@ namespace FreeCakeTopper.WebAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "FreeCakeTopper.WebAPI v1"));
             }
 
-            // app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
